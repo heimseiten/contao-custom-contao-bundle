@@ -1,0 +1,3 @@
+<?php
+  $GLOBALS['TL_HEAD'][] = '<script defer src="bundles/heimseitencontaocustomcontao/js_cc_content-gallery_with_class_horizontaleSlideAnimation/script.js"></script>';
+  $GLOBALS['TL_CSS'][] = 'bundles/heimseitencontaocustomcontao/js_cc_content-gallery_with_class_horizontaleSlideAnimation/style.css|static';
