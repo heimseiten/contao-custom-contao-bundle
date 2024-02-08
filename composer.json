@@ -1,6 +1,6 @@
 {
     "name": "heimseiten/contao-custom-contao-bundle",
-    "description": "contao-custom-contao-bundle",
+    "description": "Fügt dem Contao Content-Slider einen fade Effekt hinzu und vieles weitere mehr.",
     "keywords": [
         "horizontaleSlideAnimation",
         "fade",
