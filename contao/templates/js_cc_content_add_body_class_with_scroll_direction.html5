@@ -1,0 +1,30 @@
+<script>
+   var lastScrollTop = 0;
+   document.querySelector('body').classList.add('scroll-up')
+
+   window.addEventListener("scroll", function(){ 
+      add_body_class_if_scrolled()
+      add_body_class_with_scroll_direction()
+   }, false)
+
+   function add_body_class_if_scrolled() {
+      if (window.scrollY >= 50) {
+         document.querySelector('body').classList.add('scrolled')
+      } else {
+         document.querySelector('body').classList.remove('scrolled')
+      }  
+   }
+
+   function add_body_class_with_scroll_direction() {
+      var st = window.pageYOffset || document.documentElement.scrollTop
+      if (st > lastScrollTop){
+      document.querySelector('body').classList.add('scroll-down')
+      document.querySelector('body').classList.remove('scroll-up')
+      } else {
+      document.querySelector('body').classList.remove('scroll-down')
+      document.querySelector('body').classList.add('scroll-up')
+      }
+      lastScrollTop = st <= 0 ? 0 : st
+   }
+
+</script>
