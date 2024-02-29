@@ -3,10 +3,18 @@
     "description": "Fügt dem Contao Content-Slider einen Fade-Effekt hinzu und vieles weitere mehr.",
     "keywords": [
         "horizontaleSlideAnimation",
-        "fade",
+        "gallery",
+        "galerie",
+        "marquee",
         "content slider",
+        "content fader",
+        "fade",
         "fader",
-        "keyboard control"
+        "scroll to error",
+        "variable with header height",
+        "body class with scroll direction",
+        "keyboard control",
+        "tastatur steuerung"
     ],
     "type": "contao-bundle",
     "license": "GPL-3.0-or-later",
