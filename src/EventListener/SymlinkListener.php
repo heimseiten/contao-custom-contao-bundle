@@ -13,8 +13,8 @@ class SymlinkListener
 {
     public function __invoke(GenerateSymlinksEvent $event): void
     {
-        $event->addSymlink('vendor/fortawesome/font-awesome/free/svgs/regular', 'public/vendor/fontawesome/svgs/regular');
-        $event->addSymlink('vendor/fortawesome/font-awesome/free/svgs/solid', 'public/vendor/fontawesome/svgs/solid');
-        $event->addSymlink('vendor/fortawesome/font-awesome/free/svgs/brands', 'public/vendor/fontawesome/svgs/brands');
+        $event->addSymlink('vendor/fortawesome/font-awesome/svgs/regular', 'public/vendor/fontawesome/svgs/regular');
+        $event->addSymlink('vendor/fortawesome/font-awesome/svgs/solid', 'public/vendor/fontawesome/svgs/solid');
+        $event->addSymlink('vendor/fortawesome/font-awesome/svgs/brands', 'public/vendor/fontawesome/svgs/brands');
     }
 }
