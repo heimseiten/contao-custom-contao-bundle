@@ -14,20 +14,22 @@ class ReplaceInsertTagsListener
 
 
         switch ($name) {
-            case 'fa':
-                return file_get_contents('files/layout/icons/fontawesome/svgs/regular/'.$param.'.svg');
-                break;
+            
             case 'fab':
-                return file_get_contents('files/layout/icons/fontawesome/svgs/brands/'.$param.'.svg');
+                return file_get_contents('assets/fontawesome/svgs/brands/'.$param.'.svg');
                 break;
+            case 'fa':
+                return file_get_contents('assets/fontawesome/svgs/regular/'.$param.'.svg');
+                break;
+            case 'fas':
+                return file_get_contents('assets/fontawesome/svgs/solid/'.$param.'.svg');
+                break;
+            
             case 'fad':
                 return file_get_contents('files/layout/icons/fontawesome/svgs/duotone/'.$param.'.svg');
                 break;
             case 'fal':
                 return file_get_contents('files/layout/icons/fontawesome/svgs/light/'.$param.'.svg');
-                break;
-            case 'fas':
-                return file_get_contents('files/layout/icons/fontawesome/svgs/solid/'.$param.'.svg');
                 break;
             case 'fat':
                 return file_get_contents('files/layout/icons/fontawesome/svgs/thin/'.$param.'.svg');
