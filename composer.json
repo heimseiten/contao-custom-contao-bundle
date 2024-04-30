@@ -1,6 +1,6 @@
 {
     "name": "heimseiten/contao-custom-contao-bundle",
-    "description": "Fügt dem Contao Content-Slider einen Fade-Effekt hinzu und vieles weitere mehr. Bspw.: horizontale slide Animation für die Galerie, scroll to error, body class with scroll direction, ...",
+    "description": "Fügt dem Contao Content-Slider einen Fade-Effekt hinzu und vieles weitere mehr. Bspw.: Font Awesome Insert Tags, horizontale slide Animation für die Galerie, scroll to error, body class with scroll direction, ...",
     "keywords": [
         "horizontaleSlideAnimation",
         "gallery",
@@ -14,7 +14,8 @@
         "variable with header height",
         "body class with scroll direction",
         "keyboard control",
-        "tastatur steuerung"
+        "tastatur steuerung",
+        "Font Awesome Insert Tags"
     ],
     "type": "contao-bundle",
     "license": "GPL-3.0-or-later",
