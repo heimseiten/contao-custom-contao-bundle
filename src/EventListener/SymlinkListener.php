@@ -14,6 +14,6 @@ class SymlinkListener
     public function __invoke(GenerateSymlinksEvent $event): void
     {
         $event->addSymlink('vendor/fortawesome/font-awesome/svgs', 'assets/fontawesome/svgs');
-        $event->addSymlink('files/layout/icons/fontawesome/svgs/regular/', 'assets/fontawesome/svgs/regular/');
+        $event->addSymlink('files/layout/icons/fontawesome/svgs/regular/phone.svg', 'assets/fontawesome/svgs/regular/phone.svg');
     }
 }
