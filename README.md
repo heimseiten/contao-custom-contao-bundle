@@ -13,7 +13,7 @@ Features
 - js_cc_content_gallery_with_class_horizontaleSlideAnimation.html5
 - js_cc_remove_body_class_preload.html5 (for body.preload * { transition: none; } )
 - js_cc_scroll_to_error.html5
-- Font Awesome Insert Tags: {{fa::phone}} {{fas::phone}} {{fab::facebook}}
+- Font Awesome Insert Tags: {{fab::facebook}} {{fa::phone}} {{fas::phone}} {{fad::phone}} {{fal::phone}} {{fat::phone}} {{fasl::phone}} {{fasr::phone}} {{fass::phone}}
 
 All free Font Awesome fonts included: https://github.com/FortAwesome/Font-Awesome/tree/6.x/svgs
 
