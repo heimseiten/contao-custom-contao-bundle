@@ -11,7 +11,7 @@ Features
 - js_cc_add_body_class_with_scroll_direction.html5
 - js_cc_add_body_css_variable_with_header_height.html5
 - js_cc_content_gallery_with_class_horizontaleSlideAnimation.html5
-- js_cc_remove_body_class_preload.html5
+- js_cc_remove_body_class_preload.html5 (for body.preload * { transition: none; } )
 - js_cc_scroll_to_error.html5
 - Font Awesome Insert Tags: {{fa::phone}} {{fas::phone}} {{fab::facebook}}
 
