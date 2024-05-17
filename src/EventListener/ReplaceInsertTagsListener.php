@@ -8,44 +8,57 @@ use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 
 class ReplaceInsertTagsListener
 {
+
     public function __invoke(string $tag)
     {
+        $iconPath = 'assets/fontawesome/svgs/';
+        $customIconPath = 'files/layout/icons/fontawesome/svgs/';
+
         [$name, $param] = explode('::', $tag) + [null, null];
 
-        switch ($name) {
-            
+        switch ($name) {    
             case 'fab':
-                return '<i class="fa-brands fa-'.$param.'">'.file_get_contents('assets/fontawesome/svgs/brands/'.$param.'.svg').'</i>';
+                return $this->buildHtml($param, 'brands', $iconPath, $customIconPath);
                 break;
             case 'fa':
-                return '<i class="fa-regular fa-'.$param.'">'.file_get_contents('assets/fontawesome/svgs/regular/'.$param.'.svg').'</i>';
+                return $this->buildHtml($param, 'regular', $iconPath, $customIconPath);
                 break;
             case 'fas':
-                return '<i class="fa-solid fa-'.$param.'">'.file_get_contents('assets/fontawesome/svgs/solid/'.$param.'.svg').'</i>';
+                return $this->buildHtml($param, 'solid', $iconPath, $customIconPath);
                 break;
-            
             case 'fad':
-                return '<i class="fa-duotone fa-'.$param.'">'.file_get_contents('files/layout/icons/fontawesome/svgs/duotone/'.$param.'.svg').'</i>';
+                return $this->buildHtml($param, 'duotone', $iconPath, $customIconPath);
                 break;
             case 'fal':
-                return '<i class="fa-light fa-'.$param.'">'.file_get_contents('files/layout/icons/fontawesome/svgs/light/'.$param.'.svg').'</i>';
+                return $this->buildHtml($param, 'light', $iconPath, $customIconPath);
                 break;
             case 'fat':
-                return '<i class="fa-thin fa-'.$param.'">'.file_get_contents('files/layout/icons/fontawesome/svgs/thin/'.$param.'.svg').'</i>';
+                return $this->buildHtml($param, 'thin', $iconPath, $customIconPath);
                 break;
             case 'fasl':
-                return '<i class="fa-sharp-light fa-'.$param.'">'.file_get_contents('files/layout/icons/fontawesome/svgs/sharp-light/'.$param.'.svg').'</i>';
+                return $this->buildHtml($param, 'sharp-light', $iconPath, $customIconPath);
                 break;
             case 'fasr':
-                return '<i class="fa-sharp-regular fa-'.$param.'">'.file_get_contents('files/layout/icons/fontawesome/svgs/sharp-regular/'.$param.'.svg').'</i>';
+                return $this->buildHtml($param, 'sharp-regular', $iconPath, $customIconPath);
                 break;
             case 'fass':
-                return '<i class="fa-sharp-solid fa-'.$param.'">'.file_get_contents('files/layout/icons/fontawesome/svgs/sharp-solid/'.$param.'.svg').'</i>';
+                return $this->buildHtml($param, 'sharp-solid', $iconPath, $customIconPath);
                 break;
-
             default:
                 return false;
         }
-
     }
+
+    private function buildHtml($param, $variant, $iconPath, $customIconPath) {        
+        if (file_exists($iconPath.$variant.'/'.$param.'.svg')) {
+            return '<i class="fa-'.$variant.' fa-'.$param.'">'.file_get_contents($iconPath.$variant.'/'.$param.'.svg').'</i>';
+        } else {
+            if (file_exists($customIconPath.$variant.'/'.$param.'.svg')) {
+                return '<i class="fa-'.$variant.' fa-'.$param.'">'.file_get_contents($customIconPath.$variant.'/'.$param.'.svg').'</i>';
+            } else {
+                return '<i class="error">icon not found</i>';
+            }
+        }
+    } 
+
 }
