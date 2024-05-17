@@ -18,3 +18,5 @@ Features
 All free Font Awesome fonts included: https://github.com/FortAwesome/Font-Awesome/tree/6.x/svgs
 
 Own Font Awesome fonts must be in files/layout/icons/fontawesome/svgs/
+
+All Font Awesome styles can be used: brands, regular, solid, duotone, light, thin, sharp-light, sharp-regular, sharp-solid
