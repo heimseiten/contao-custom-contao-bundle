@@ -3,8 +3,6 @@
 Nothing is switched on by default. Contains many small features and helpers:
 
 Templates
-- Content Slider with keyboard control (/swiper/with_keyboard_control.html.twig)
-- Content Slider with keyboard control and fade effect (/swiper/with_fade_effect_and_keyboard_control.html.twig)
 - player.html.twig to display thumbnails on iPhone
 
 Features
