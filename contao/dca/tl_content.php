@@ -90,19 +90,19 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['sliderBreakpoint2'] = [
 $GLOBALS['TL_DCA']['tl_content']['fields']['sliderSlidesPerViewBreakpoint2'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['sliderSlidesPerViewBreakpoint2'],
     'exclude' => true,
-    'default' => 2,
+    'default' => 1,
     'inputType' => 'text',
     'eval' => ['maxlength' => 4, 'tl_class' => 'w25'],
-    'sql' => "varchar(4) NOT NULL default '2'",
+    'sql' => "varchar(4) NOT NULL default '1'",
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['sliderSpaceBetweenBreakpoint2'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['sliderSpaceBetweenBreakpoint2'],
     'exclude' => true,
-    'default' => 10,
+    'default' => 0,
     'inputType' => 'text',
     'eval' => ['rgxp' => 'digit', 'maxlength' => 5, 'tl_class' => 'w25'],
-    'sql' => ['type' => 'integer', 'unsigned' => false, 'default' => 10],
+    'sql' => ['type' => 'integer', 'unsigned' => false, 'default' => 0],
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['sliderCenteredSlidesBreakpoint2'] = [
@@ -125,19 +125,19 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['sliderBreakpoint3'] = [
 $GLOBALS['TL_DCA']['tl_content']['fields']['sliderSlidesPerViewBreakpoint3'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['sliderSlidesPerViewBreakpoint3'],
     'exclude' => true,
-    'default' => 4,
+    'default' => 1,
     'inputType' => 'text',
     'eval' => ['maxlength' => 4, 'tl_class' => 'w25'],
-    'sql' => "varchar(4) NOT NULL default '4'",
+    'sql' => "varchar(4) NOT NULL default '1'",
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['sliderSpaceBetweenBreakpoint3'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['sliderSpaceBetweenBreakpoint3'],
     'exclude' => true,
-    'default' => 30,
+    'default' => 0,
     'inputType' => 'text',
     'eval' => ['rgxp' => 'digit', 'maxlength' => 5, 'tl_class' => 'w25'],
-    'sql' => ['type' => 'integer', 'unsigned' => false, 'default' => 30],
+    'sql' => ['type' => 'integer', 'unsigned' => false, 'default' => 0],
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['sliderCenteredSlidesBreakpoint3'] = [
@@ -160,19 +160,19 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['sliderBreakpoint4'] = [
 $GLOBALS['TL_DCA']['tl_content']['fields']['sliderSlidesPerViewBreakpoint4'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['sliderSlidesPerViewBreakpoint4'],
     'exclude' => true,
-    'default' => 5,
+    'default' => 1,
     'inputType' => 'text',
     'eval' => ['maxlength' => 4, 'tl_class' => 'w25'],
-    'sql' => "varchar(4) NOT NULL default '5'",
+    'sql' => "varchar(4) NOT NULL default '1'",
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['sliderSpaceBetweenBreakpoint4'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['sliderSpaceBetweenBreakpoint4'],
     'exclude' => true,
-    'default' => 40,
+    'default' => 0,
     'inputType' => 'text',
     'eval' => ['rgxp' => 'digit', 'maxlength' => 5, 'tl_class' => 'w25'],
-    'sql' => ['type' => 'integer', 'unsigned' => false, 'default' => 40],
+    'sql' => ['type' => 'integer', 'unsigned' => false, 'default' => 0],
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['sliderCenteredSlidesBreakpoint4'] = [
