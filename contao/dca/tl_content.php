@@ -264,31 +264,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['sliderPagination'] = [
     'sql' => "char(1) NOT NULL default ''",
 ];
 
-$GLOBALS['TL_DCA']['tl_content']['fields']['sliderBreakpoints'] = [
-    'exclude' => true,
-    'inputType' => 'group',
-    'palette' => ['breakpoint', 'slidesPerView', 'spaceBetween'],
-    'eval' => ['tl_class' => 'clr'],
-    'fields' => [
-        'breakpoint' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_content']['sliderBreakpointsSettings']['breakpoint'],
-            'inputType' => 'text',
-            'eval' => ['rgxp' => 'natural', 'tl_class' => 'w50'],
-        ],
-        'slidesPerView' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_content']['sliderBreakpointsSettings']['slidesPerView'],
-            'inputType' => 'text',
-            'eval' => ['maxlength' => 4, 'tl_class' => 'clr w50'],
-        ],
-        'spaceBetween' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_content']['sliderBreakpointsSettings']['spaceBetween'],
-            'inputType' => 'text',
-            'eval' => ['rgxp' => 'digit', 'tl_class' => 'w50'],
-        ],
-    ],
-    'sql' => 'BLOB null',
-];
-
 $GLOBALS['TL_DCA']['tl_content']['fields']['sliderAutoheight'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['sliderAutoheight'],
     'exclude' => true,
