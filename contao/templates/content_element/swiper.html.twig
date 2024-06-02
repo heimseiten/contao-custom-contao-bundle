@@ -1,0 +1,99 @@
+{% extends "@Contao/content_element/swiper.html.twig" %}
+
+{% block init_options %}
+  
+  effect: '{{ data.sliderEffect }}',
+
+  {% if data.sliderAutoheight %}
+    autoHeight: true,
+  {% endif %}
+
+  {% if data.sliderCenteredSlides %}
+    centeredSlides: true,
+  {% endif %}
+  
+  {% if data.sliderKeyboardControl %}
+    keyboard: {
+      enabled: true,
+    },
+  {% endif %}
+  
+  {% if data.sliderPagination %}
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  {% endif %}
+  
+  {% if data.sliderButtons %}
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  {% endif %}
+  
+  {% if data.sliderScrollbar %}
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+  {% endif %}
+
+  breakpoints: {
+    {% if data.sliderBreakpoint1 %}
+      {{ data.sliderBreakpoint1 }}: {
+        slidesPerView: {{ data.sliderSlidesPerViewBreakpoint1 }},
+        spaceBetween: {{ data.sliderSpaceBetweenBreakpoint1 }}
+      },
+    {% endif %}
+    {% if data.sliderBreakpoint2 %}
+      {{ data.sliderBreakpoint2 }}: {
+        slidesPerView: {{ data.sliderSlidesPerViewBreakpoint2 }},
+        spaceBetween: {{ data.sliderSpaceBetweenBreakpoint2 }}
+      },
+    {% endif %}
+    {% if data.sliderBreakpoint3 %}
+      {{ data.sliderBreakpoint3 }}: {
+        slidesPerView: {{ data.sliderSlidesPerViewBreakpoint3 }},
+        spaceBetween: {{ data.sliderSpaceBetweenBreakpoint3 }}
+      },
+    {% endif %}
+    {% if data.sliderBreakpoint4 %}
+      {{ data.sliderBreakpoint4 }}: {
+        slidesPerView: {{ data.sliderSlidesPerViewBreakpoint4 }},
+        spaceBetween: {{ data.sliderSpaceBetweenBreakpoint4 }}
+      }
+    {% endif %}
+  }
+  
+{% endblock %}
+
+{% block controls %}
+
+  {% if data.sliderButtons %}
+    {% set button_prev_attributes = attrs()
+        .set('type', 'button')
+        .addClass('swiper-button-prev')
+        .mergeWith(button_prev_attributes|default)
+    %}
+    <button{{ button_prev_attributes }}></button>
+    {% set button_next_attributes = attrs()
+        .set('type', 'button')
+        .addClass('swiper-button-next')
+        .mergeWith(button_next_attributes|default)
+    %}
+    <button{{ button_next_attributes }}></button>
+  {% endif %}
+
+  {% if data.sliderPagination %}
+    {% set pagination_attributes = attrs()
+        .addClass('swiper-pagination')
+        .mergeWith(pagination_attributes|default)
+    %}  
+    <div{{ pagination_attributes }}></div>
+  {% endif %}
+
+  {% if data.sliderScrollbar %}
+    <div class="swiper-scrollbar"></div>
+  {% endif %}
+
+{% endblock %}
