@@ -37,7 +37,7 @@ PaletteManipulator::create()
 ;
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['sliderDelay']['eval']['rgxp'] = 'natural';
-$GLOBALS['TL_DCA']['tl_content']['fields']['sliderDelay']['default'] = 5000;
+$GLOBALS['TL_DCA']['tl_content']['fields']['sliderDelay']['default'] = 4000;
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['sliderSpeed']['eval']['rgxp'] = 'natural';
 $GLOBALS['TL_DCA']['tl_content']['fields']['sliderSpeed']['default'] = 1500;
