@@ -1,11 +1,15 @@
 <script>
     document.addEventListener("DOMContentLoaded", function(event) { 
+
         scroll_to_error()
         scroll_to_lost_password()
+        
         function scroll_to_error() {
             if (document.querySelector('.error')) {
                 setTimeout(function(){
-                    window.scrollTo(0, document.querySelector('.error').getBoundingClientRect().top - 300 )
+                    // scroll to the element with the error class
+                    
+                    document.querySelector('.error').scrollIntoView({behavior: 'smooth', block: 'center'})
                 }, 500)
             }
         }
@@ -16,5 +20,22 @@
                 }, 500)
             }
         }
+
+        if (document.querySelector('form')) {
+            var observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    console.log('mutation')
+                    scroll_to_error()
+                })
+            })
+            
+            observer.observe(document.body, {
+                attributes: true,
+                attributeFilter: ['data-ajax-form'],
+                childList: true,
+                subtree: true
+            })
+        }
+
     })
 </script>
