@@ -1,4 +1,5 @@
 <script>
+
    var lastScrollTop = 0;
    document.querySelector('body').classList.add('scroll-up')
 
@@ -6,12 +7,18 @@
       add_body_class_if_scrolled()
       add_body_class_with_scroll_direction()
       add_body_style_with_variable_of_scrolled_pixels()
+      add_body_style_with_variable_of_scrolled_percent()
    }, false)
 
    function add_body_style_with_variable_of_scrolled_pixels() {
       document.querySelector('body').style.setProperty('--scrolled-pixels', window.scrollY)
    }
    
+   function add_body_style_with_variable_of_scrolled_percent() {
+      var scrolled_percent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100).toFixed(2)
+      document.querySelector('body').style.setProperty('--scrolled-percent', scrolled_percent + '%')
+
+   }
 
    function add_body_class_if_scrolled() {
       if (window.scrollY >= 50) {
