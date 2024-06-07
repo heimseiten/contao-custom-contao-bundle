@@ -1,0 +1,14 @@
+{% extends "@Contao/content_element/image.html.twig" %}
+
+{% block figure_component %}
+
+  {% if figure.image.img.width %}
+    {% if figure.image.img.height %}
+      {% set figure_attributes = attrs()
+        .addStyle( '--img_w:' ~ figure.image.img.width ~ ';--img_h:' ~ figure.image.img.height ~ ';' ) %}
+    {% endif %}
+  {% endif %}
+  
+  {{ parent() }}
+
+{% endblock %}
