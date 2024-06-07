@@ -16,7 +16,7 @@
    
    function add_body_style_with_variable_of_scrolled_percent() {
       var scrolled_percent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100).toFixed(2)
-      document.querySelector('body').style.setProperty('--scrolled-percent', scrolled_percent + '%')
+      document.querySelector('body').style.setProperty('--scrolled-percent', scrolled_percent)
 
    }
 
