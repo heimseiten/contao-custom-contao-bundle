@@ -1,4 +1,5 @@
 <script>
+document.addEventListener("DOMContentLoaded", function() {
 
    var lastScrollTop = 0;
    document.querySelector('body').classList.add('scroll-up')
@@ -40,4 +41,5 @@
       lastScrollTop = st <= 0 ? 0 : st
    }
 
+})
 </script>
