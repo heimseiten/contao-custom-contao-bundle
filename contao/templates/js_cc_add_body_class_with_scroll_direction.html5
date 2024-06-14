@@ -12,13 +12,18 @@ document.addEventListener("DOMContentLoaded", function() {
    }, false)
 
    function add_body_style_with_variable_of_scrolled_pixels() {
-      document.querySelector('body').style.setProperty('--scrolled-pixels', window.scrollY)
+      const resizeObserver = new ResizeObserver(entries => {
+         document.querySelector('body').style.setProperty('--scrolled-pixels', window.scrollY)
+      })
+      resizeObserver.observe(document.body)
    }
    
    function add_body_style_with_variable_of_scrolled_percent() {
-      var scrolled_percent = (window.scrollY / (document.documentElement.scrollHeight - window.screen.availHeight) * 100).toFixed(3)
-      document.querySelector('body').style.setProperty('--scrolled-percent', scrolled_percent)
-
+      const resizeObserver = new ResizeObserver(entries => {
+         var scrolled_percent = (window.scrollY / (document.documentElement.scrollHeight - window.screen.availHeight) * 100).toFixed(3)
+         document.querySelector('body').style.setProperty('--scrolled-percent', scrolled_percent)
+      })
+      resizeObserver.observe(document.body)
    }
 
    function add_body_class_if_scrolled() {
