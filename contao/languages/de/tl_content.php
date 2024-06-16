@@ -17,14 +17,14 @@ $GLOBALS['TL_LANG']['tl_content']['sliderSlidesPerGroupBreakpoint1'] = ['Anzahl 
 $GLOBALS['TL_LANG']['tl_content']['sliderBreakpoint2'] = ['Breite des Fensters >=', "In Pixel."];
 $GLOBALS['TL_LANG']['tl_content']['sliderSlidesPerViewBreakpoint2'] = ['Anzahl der sichtbaren Slides', "Die Anzahl an einzelnen Slides die pro Sektion sichtbar sein soll (Zahl oder 'auto')."];
 $GLOBALS['TL_LANG']['tl_content']['sliderSpaceBetweenBreakpoint2'] = ['Abstand zwischen den Slides', 'Abstand zwischen den Slides in Pixel.'];
-$GLOBALS['TL_LANG']['tl_content']['sliderCenteredSlidesBreakpoint2'] = ['Anzahl gruppierter Slides', 'bestimmtB wie viele?'Eiträge gleichzeitig verschoben werden.n];
+$GLOBALS['TL_LANG']['tl_content']['sliderCenteredSlidesBreakpoint2'] = ['Anzahl gruppierter Slides', 'Bestimmt, wie viele Einträge gleichzeitig verschoben werden.'];
 
 $GLOBALS['TL_LANG']['tl_content']['sliderBreakpoint3'] = ['Breite des Fensters >=', "In Pixel."];
 $GLOBALS['TL_LANG']['tl_content']['sliderSlidesPerViewBreakpoint3'] = ['Anzahl der sichtbaren Slides', "Die Anzahl an einzelnen Slides die pro Sektion sichtbar sein soll (Zahl oder 'auto')."];
 $GLOBALS['TL_LANG']['tl_content']['sliderSpaceBetweenBreakpoint3'] = ['Abstand zwischen den Slides', 'Abstand zwischen den Slides in Pixel.'];
-$GLOBALS['TL_LANG']['tl_content']['sliderCenteredSlidesBreakpoint3'] = ['Anzahl gruppierter Slides', 'bestimmtB wie viele?'Eiträge gleichzeitig verschoben werden.n];
+$GLOBALS['TL_LANG']['tl_content']['sliderCenteredSlidesBreakpoint3'] = ['Anzahl gruppierter Slides', 'Bestimmt, wie viele Einträge gleichzeitig verschoben werden.'];
 
 $GLOBALS['TL_LANG']['tl_content']['sliderBreakpoint4'] = ['Breite des Fensters >=', "In Pixel."];
 $GLOBALS['TL_LANG']['tl_content']['sliderSlidesPerViewBreakpoint4'] = ['Anzahl der sichtbaren Slides', "Die Anzahl an einzelnen Slides die pro Sektion sichtbar sein soll (Zahl oder 'auto')."];
 $GLOBALS['TL_LANG']['tl_content']['sliderSpaceBetweenBreakpoint4'] = ['Abstand zwischen den Slides', 'Abstand zwischen den Slides in Pixel.'];
-$GLOBALS['TL_LANG']['tl_content']['sliderCenteredSlidesBreakpoint4'] = ['Anzahl gruppierter Slides', 'bestimmtB wie viele?'Eiträge gleichzeitig verschoben werden.n];
+$GLOBALS['TL_LANG']['tl_content']['sliderCenteredSlidesBreakpoint4'] = ['Anzahl gruppierter Slides', 'Bestimmt, wie viele Einträge gleichzeitig verschoben werden.'];
