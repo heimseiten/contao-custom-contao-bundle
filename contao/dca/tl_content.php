@@ -17,25 +17,21 @@ PaletteManipulator::create()
     ->addField('sliderSlidesPerViewBreakpoint1', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('sliderSlidesPerGroupBreakpoint1', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('sliderSpaceBetweenBreakpoint1', 'slider_legend', PaletteManipulator::POSITION_APPEND)
-    ->addField('sliderCenteredSlidesBreakpoint1', 'slider_legend', PaletteManipulator::POSITION_APPEND)
 
     ->addField('sliderBreakpoint2', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('sliderSlidesPerViewBreakpoint2', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('sliderSlidesPerGroupBreakpoint2', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('sliderSpaceBetweenBreakpoint2', 'slider_legend', PaletteManipulator::POSITION_APPEND)
-    ->addField('sliderCenteredSlidesBreakpoint2', 'slider_legend', PaletteManipulator::POSITION_APPEND)
 
     ->addField('sliderBreakpoint3', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('sliderSlidesPerViewBreakpoint3', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('sliderSlidesPerGroupBreakpoint3', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('sliderSpaceBetweenBreakpoint3', 'slider_legend', PaletteManipulator::POSITION_APPEND)
-    ->addField('sliderCenteredSlidesBreakpoint3', 'slider_legend', PaletteManipulator::POSITION_APPEND)
 
     ->addField('sliderBreakpoint4', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('sliderSlidesPerViewBreakpoint4', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('sliderSlidesPerGroupBreakpoint4', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('sliderSpaceBetweenBreakpoint4', 'slider_legend', PaletteManipulator::POSITION_APPEND)
-    ->addField('sliderCenteredSlidesBreakpoint4', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     
     ->applyToPalette('swiper', 'tl_content')
 ;
