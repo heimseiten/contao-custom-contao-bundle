@@ -1,14 +1,7 @@
 <script>
-    setHeaderHeightAsCssVariable()
-
-    addEventListener("resize", e => {
-        setHeaderHeightAsCssVariable()
-    })
-
-    setTimeout(() => {
-        setHeaderHeightAsCssVariable()
-    }, 100)
-
+    const resizeObserver = new ResizeObserver(entries => { setHeaderHeightAsCssVariable() })
+    resizeObserver.observe(document.body)
+    
     function setHeaderHeightAsCssVariable() {
         if ( document.querySelector('#header') && document.querySelector('body') ) {
             document.querySelector('body').setAttribute( 'style', '--header_height:' + document.querySelector('#header').clientHeight + 'px')
