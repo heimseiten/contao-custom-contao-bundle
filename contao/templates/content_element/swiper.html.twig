@@ -17,7 +17,11 @@
       enabled: true,
     },
   {% endif %}
-  
+
+  {% if data.sliderVertical %}
+    direction: 'vertical',
+  {% endif %}
+    
   {% if data.sliderPagination %}
     pagination: {
       el: '.swiper-pagination',
