@@ -12,6 +12,7 @@ PaletteManipulator::create()
     ->addField('sliderScrollbar', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('sliderAutoheight', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('sliderKeyboardControl', 'slider_legend', PaletteManipulator::POSITION_APPEND)
+    ->addField('sliderVertical', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     
     ->addField('sliderBreakpoint1', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('sliderSlidesPerViewBreakpoint1', 'slider_legend', PaletteManipulator::POSITION_APPEND)
@@ -270,6 +271,14 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['sliderAutoheight'] = [
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['sliderKeyboardControl'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['sliderKeyboardControl'],
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'eval' => ['tl_class' => 'w25 m12'],
+    'sql' => "char(1) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['sliderVertical'] = [
+    'label' => &$GLOBALS['TL_LANG']['tl_content']['sliderVertical'],
     'exclude' => true,
     'inputType' => 'checkbox',
     'eval' => ['tl_class' => 'w25 m12'],
