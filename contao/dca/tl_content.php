@@ -47,7 +47,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['sliderSpeed']['default'] = 1500;
 $GLOBALS['TL_DCA']['tl_content']['fields']['sliderBreakpoint1'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['sliderBreakpoint1'],
     'exclude' => true,
-    'default' => 0,
+    'default' => 1,
     'inputType' => 'text',
     'eval' => ['maxlength' => 4, 'tl_class' => 'w25 clr'],
     'sql' => "varchar(4) NOT NULL default '0'",
