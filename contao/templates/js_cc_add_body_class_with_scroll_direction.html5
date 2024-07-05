@@ -7,24 +7,10 @@ document.addEventListener("DOMContentLoaded", function() {
    window.addEventListener("scroll", function(){ 
       add_body_class_if_scrolled()
       add_body_class_with_scroll_direction()
+      add_body_class_when_the_height_of_the_viewport_is_scrolled()
       add_body_style_with_variable_of_scrolled_pixels()
       add_body_style_with_variable_of_scrolled_percent()
    }, false)
-
-   function add_body_style_with_variable_of_scrolled_pixels() {
-      const resizeObserver = new ResizeObserver(entries => {
-         document.querySelector('body').style.setProperty('--scrolled-pixels', window.scrollY)
-      })
-      resizeObserver.observe(document.body)
-   }
-   
-   function add_body_style_with_variable_of_scrolled_percent() {
-      const resizeObserver = new ResizeObserver(entries => {
-         var scrolled_percent = (window.scrollY / (document.documentElement.scrollHeight - window.screen.availHeight) * 100).toFixed(3)
-         document.querySelector('body').style.setProperty('--scrolled-percent', scrolled_percent)
-      })
-      resizeObserver.observe(document.body)
-   }
 
    function add_body_class_if_scrolled() {
       if (window.scrollY >= 50) {
@@ -44,6 +30,29 @@ document.addEventListener("DOMContentLoaded", function() {
       document.querySelector('body').classList.add('scroll-up')
       }
       lastScrollTop = st <= 0 ? 0 : st
+   }
+
+   function add_body_class_when_the_height_of_the_viewport_is_scrolled() {
+      if (window.scrollY >= window.screen.availHeight) {
+         document.querySelector('body').classList.add('scrolled100vh')
+      } else {
+         document.querySelector('body').classList.remove('scrolled100vh')
+      }  
+   }
+
+   function add_body_style_with_variable_of_scrolled_pixels() {
+      const resizeObserver = new ResizeObserver(entries => {
+         document.querySelector('body').style.setProperty('--scrolled-pixels', window.scrollY)
+      })
+      resizeObserver.observe(document.body)
+   }
+   
+   function add_body_style_with_variable_of_scrolled_percent() {
+      const resizeObserver = new ResizeObserver(entries => {
+         var scrolled_percent = (window.scrollY / (document.documentElement.scrollHeight - window.screen.availHeight) * 100).toFixed(3)
+         document.querySelector('body').style.setProperty('--scrolled-percent', scrolled_percent)
+      })
+      resizeObserver.observe(document.body)
    }
 
 })
