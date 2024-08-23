@@ -44,6 +44,12 @@ class ReplaceInsertTagsListener
             case 'fass':
                 return $this->buildHtml($param, 'sharp-solid', $iconPath, $customIconPath);
                 break;
+            case 'fast':
+                return $this->buildHtml($param, 'sharp-thin', $iconPath, $customIconPath);
+                break;
+            case 'fasds':
+                return $this->buildHtml($param, 'sharp-duotone-solid', $iconPath, $customIconPath);
+                break;
             default:
                 return false;
         }
