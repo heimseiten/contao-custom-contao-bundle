@@ -50,20 +50,35 @@ class ReplaceInsertTagsListener
             case 'fasds':
                 return $this->buildHtml($param, 'sharp-duotone-solid', $iconPath, $customIconPath);
                 break;
+            case 'icon':
+                return $this->buildHtml($param, 'custom', $iconPath, $customIconPath);
+                break;
             default:
                 return false;
         }
     }
 
-    private function buildHtml($param, $variant, $iconPath, $customIconPath) {        
-        if (file_exists($iconPath.$variant.'/'.$param.'.svg')) {
-            return '<i class="fa-'.$variant.' fa-'.$param.'">'.file_get_contents($iconPath.$variant.'/'.$param.'.svg').'</i>';
-        } else {
-            if (file_exists($customIconPath.$variant.'/'.$param.'.svg')) {
-                return '<i class="fa-'.$variant.' fa-'.$param.'">'.file_get_contents($customIconPath.$variant.'/'.$param.'.svg').'</i>';
+    private function buildHtml($param, $variant, $iconPath, $customIconPath) {
+        if ($variant == 'custom') {
+
+            if (file_exists('files/layout/icons/'.$param.'.svg')) {
+                return '<i class="'.$variant.' '.$param.'">'.file_get_contents('files/layout/icons/'.$param.'.svg').'</i>';
             } else {
                 return '<i class="error">icon not found</i>';
             }
+
+        } else {
+            
+            if (file_exists($iconPath.$variant.'/'.$param.'.svg')) {
+                return '<i class="fa-'.$variant.' fa-'.$param.'">'.file_get_contents($iconPath.$variant.'/'.$param.'.svg').'</i>';
+            } else {
+                if (file_exists($customIconPath.$variant.'/'.$param.'.svg')) {
+                    return '<i class="fa-'.$variant.' fa-'.$param.'">'.file_get_contents($customIconPath.$variant.'/'.$param.'.svg').'</i>';
+                } else {
+                    return '<i class="error">icon not found</i>';
+                }
+            }
+
         }
     } 
 
