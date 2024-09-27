@@ -1,0 +1,10 @@
+.w20 {
+    float: left;
+    min-height: 80px;
+    width: calc(50% - 30px);
+}
+@media (min-width: 1280px) {
+    .w20 {
+        width: calc(20% - 30px);
+    }
+}
