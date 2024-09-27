@@ -7,10 +7,6 @@
   {% if data.sliderAutoheight %}
     autoHeight: true,
   {% endif %}
-
-  {% if data.sliderCenteredSlides %}
-    centeredSlides: true,
-  {% endif %}
   
   {% if data.sliderKeyboardControl %}
     keyboard: {
@@ -47,28 +43,40 @@
       {{ data.sliderBreakpoint1 }}: {
         slidesPerView: {{ data.sliderSlidesPerViewBreakpoint1 }},
         slidesPerGroup: {{ data.sliderSlidesPerGroupBreakpoint1 }},
-        spaceBetween: {{ data.sliderSpaceBetweenBreakpoint1 }}
+        spaceBetween: {{ data.sliderSpaceBetweenBreakpoint1 }},
+        {% if data.sliderCenteredSlidesBreakpoint1 %}
+            centeredSlides: true,
+        {% endif %}
       },
     {% endif %}
     {% if data.sliderBreakpoint2 %}
       {{ data.sliderBreakpoint2 }}: {
         slidesPerView: {{ data.sliderSlidesPerViewBreakpoint2 }},
         slidesPerGroup: {{ data.sliderSlidesPerGroupBreakpoint2 }},
-        spaceBetween: {{ data.sliderSpaceBetweenBreakpoint2 }}
+        spaceBetween: {{ data.sliderSpaceBetweenBreakpoint2 }},
+        {% if data.sliderCenteredSlidesBreakpoint2 %}
+            centeredSlides: true,
+        {% endif %}
       },
     {% endif %}
     {% if data.sliderBreakpoint3 %}
       {{ data.sliderBreakpoint3 }}: {
         slidesPerView: {{ data.sliderSlidesPerViewBreakpoint3 }},
         slidesPerGroup: {{ data.sliderSlidesPerGroupBreakpoint3 }},
-        spaceBetween: {{ data.sliderSpaceBetweenBreakpoint3 }}
+        spaceBetween: {{ data.sliderSpaceBetweenBreakpoint3 }},
+        {% if data.sliderCenteredSlidesBreakpoint3 %}
+            centeredSlides: true,
+        {% endif %}
       },
     {% endif %}
     {% if data.sliderBreakpoint4 %}
       {{ data.sliderBreakpoint4 }}: {
         slidesPerView: {{ data.sliderSlidesPerViewBreakpoint4 }},
         slidesPerGroup: {{ data.sliderSlidesPerGroupBreakpoint4 }},
-        spaceBetween: {{ data.sliderSpaceBetweenBreakpoint4 }}
+        spaceBetween: {{ data.sliderSpaceBetweenBreakpoint4 }},
+        {% if data.sliderCenteredSlidesBreakpoint4 %}
+            centeredSlides: true,
+        {% endif %}
       }
     {% endif %}
   }
