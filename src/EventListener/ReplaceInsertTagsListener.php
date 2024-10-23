@@ -62,20 +62,20 @@ class ReplaceInsertTagsListener
         if ($variant == 'custom') {
 
             if (file_exists('files/layout/icons/'.$param.'.svg')) {
-                return '<i class="'.$variant.' '.$param.'">'.file_get_contents('files/layout/icons/'.$param.'.svg').'</i>';
+                return '<i class="svg '.$variant.' '.$param.'">'.file_get_contents('files/layout/icons/'.$param.'.svg').'</i>';
             } else {
-                return '<i class="error">icon not found</i>';
+                return '<i class="svg error">icon not found</i>';
             }
 
         } else {
             
             if (file_exists($iconPath.$variant.'/'.$param.'.svg')) {
-                return '<i class="fa-'.$variant.' fa-'.$param.'">'.file_get_contents($iconPath.$variant.'/'.$param.'.svg').'</i>';
+                return '<i class="svg fa-'.$variant.' fa-'.$param.'">'.file_get_contents($iconPath.$variant.'/'.$param.'.svg').'</i>';
             } else {
                 if (file_exists($customIconPath.$variant.'/'.$param.'.svg')) {
-                    return '<i class="fa-'.$variant.' fa-'.$param.'">'.file_get_contents($customIconPath.$variant.'/'.$param.'.svg').'</i>';
+                    return '<i class="svg fa-'.$variant.' fa-'.$param.'">'.file_get_contents($customIconPath.$variant.'/'.$param.'.svg').'</i>';
                 } else {
-                    return '<i class="error">icon not found</i>';
+                    return '<i class="svg error">icon not found</i>';
                 }
             }
 
