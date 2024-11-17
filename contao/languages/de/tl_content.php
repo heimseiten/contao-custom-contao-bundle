@@ -8,7 +8,9 @@ $GLOBALS['TL_LANG']['tl_content']['sliderScrollbar'] = ['Scroll-Balken', 'Zeigt 
 $GLOBALS['TL_LANG']['tl_content']['sliderPagination'] = ['Navigationspunkte', 'Zeigt Navigationspunkte für die einzelnen Slides an.'];
 $GLOBALS['TL_LANG']['tl_content']['sliderAutoheight'] = ['Automatische Höhe', 'Wenn aktiv, passt sich die Höhe des Sliders an die Höhe des aktuell aktiven Elements an.'];
 $GLOBALS['TL_LANG']['tl_content']['sliderKeyboardControl'] = ['Tastatursteuerung', 'Ermöglicht die Navigation der Slides mit den Pfeiltasten.'];
-$GLOBALS['TL_LANG']['tl_content']['sliderVertical'] = ['Vertikal verschieben', '!!! Hierfür muss muss dem div mit der Klasse "swiper" eine fixe Höhe zugewiesen werden !!!'];
+$GLOBALS['TL_LANG']['tl_content']['sliderVertical'] = ['Vertikal sliden', '!!! Hierfür muss muss dem div mit der Klasse "swiper" eine fixe Höhe zugewiesen werden !!!'];
+$GLOBALS['TL_LANG']['tl_content']['sliderNotDisableOnInteraction'] = ['nicht stoppen bei Mausberührung', ''];
+$GLOBALS['TL_LANG']['tl_content']['sliderThumbs'] = ['Miniaturansichten einblenden', ''];
 
 $GLOBALS['TL_LANG']['tl_content']['sliderBreakpoint1'] = ['Breite des Fensters >=', "In Pixel."];
 $GLOBALS['TL_LANG']['tl_content']['sliderSlidesPerViewBreakpoint1'] = ['Anzahl der sichtbaren Slides', "Die Anzahl an einzelnen Slides die pro Sektion sichtbar sein soll (Zahl oder 'auto')."];
