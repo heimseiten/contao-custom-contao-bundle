@@ -85,8 +85,10 @@
           
           {% if data.sliderThumbsSlidesPerView %}
             slidesPerView: {{data.sliderThumbsSlidesPerView}},
+            slidesPerGroup: {{data.sliderThumbsSlidesPerView}},
           {% else %}
             slidesPerView: 4,
+            slidesPerGroup: 4,
           {% endif %}
 
           freeMode: true,
