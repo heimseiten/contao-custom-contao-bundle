@@ -9,6 +9,8 @@ $GLOBALS['TL_LANG']['tl_content']['sliderPagination'] = ['Pagination', 'Shows a 
 $GLOBALS['TL_LANG']['tl_content']['sliderAutoheight'] = ['Auto-height', 'When active the height of the slider adapts to the height of the currently active element.'];
 $GLOBALS['TL_LANG']['tl_content']['sliderKeyboardControl'] = ['Keyboard control', 'Enables the arrow keys to navigate the slides.'];
 $GLOBALS['TL_LANG']['tl_content']['sliderVertical'] = ['swipe vertical', '!!! For this, a fixed height must be assigned to the div with the "swiper" class !!!'];
+$GLOBALS['TL_LANG']['tl_content']['sliderNotDisableOnInteraction'] = ['do not stop on mouse over', ''];
+$GLOBALS['TL_LANG']['tl_content']['sliderThumbs'] = ['Show thumbnails', ''];
 
 $GLOBALS['TL_LANG']['tl_content']['sliderBreakpoint1'] = ['Width of the window >=', "In pixels."];
 $GLOBALS['TL_LANG']['tl_content']['sliderSlidesPerViewBreakpoint1'] = ['Slides per view', "Number of visible slides (number or 'auto')."];
