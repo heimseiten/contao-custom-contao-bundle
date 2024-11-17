@@ -82,7 +82,13 @@
         const swiper_thumbs_{{data.id}} = new Swiper('.swiper_thumbs.id_{{data.id}}', {
           loop: true,
           spaceBetween: 5,
-          slidesPerView: 4,
+          
+          {% if data.sliderThumbsSlidesPerView %}
+            slidesPerView: {{data.sliderThumbsSlidesPerView}},
+          {% else %}
+            slidesPerView: 4,
+          {% endif %}
+
           freeMode: true,
           watchSlidesProgress: true,
           navigation: {
