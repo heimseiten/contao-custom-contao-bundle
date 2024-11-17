@@ -12,6 +12,7 @@ PaletteManipulator::create()
     ->addField('sliderKeyboardControl', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('sliderNotDisableOnInteraction', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('sliderThumbs', 'slider_legend', PaletteManipulator::POSITION_APPEND)
+    ->addField('sliderThumbsSlidesPerView', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('sliderScrollbar', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('sliderAutoheight', 'slider_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('sliderVertical', 'slider_legend', PaletteManipulator::POSITION_APPEND)
@@ -129,6 +130,14 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['sliderThumbs'] = [
     'sql' => "char(1) NOT NULL default ''",
 ];
 
+$GLOBALS['TL_DCA']['tl_content']['fields']['sliderThumbsSlidesPerView'] = [
+    'label' => &$GLOBALS['TL_LANG']['tl_content']['sliderThumbsSlidesPerView'],
+    'exclude' => true,
+    'default' => 1,
+    'inputType' => 'text',
+    'eval' => ['maxlength' => 4, 'tl_class' => 'w20'],
+    'sql' => "varchar(4) NOT NULL default '0'",
+];
 
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['sliderBreakpoint1'] = [
