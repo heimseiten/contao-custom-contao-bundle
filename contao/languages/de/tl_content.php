@@ -11,6 +11,7 @@ $GLOBALS['TL_LANG']['tl_content']['sliderKeyboardControl'] = ['Tastatursteuerung
 $GLOBALS['TL_LANG']['tl_content']['sliderVertical'] = ['Vertikal sliden', '!!! Hierfür muss muss dem div mit der Klasse "swiper" eine fixe Höhe zugewiesen werden !!!'];
 $GLOBALS['TL_LANG']['tl_content']['sliderNotDisableOnInteraction'] = ['nicht stoppen bei Mausberührung', ''];
 $GLOBALS['TL_LANG']['tl_content']['sliderThumbs'] = ['Miniaturansichten einblenden', ''];
+$GLOBALS['TL_LANG']['tl_content']['sliderThumbsSlidesPerView'] = ['Anzahl der Miniaturansichten', ''];
 
 $GLOBALS['TL_LANG']['tl_content']['sliderBreakpoint1'] = ['Breite des Fensters >=', "In Pixel."];
 $GLOBALS['TL_LANG']['tl_content']['sliderSlidesPerViewBreakpoint1'] = ['Anzahl der sichtbaren Slides', "Die Anzahl an einzelnen Slides die pro Sektion sichtbar sein soll (Zahl oder 'auto')."];
