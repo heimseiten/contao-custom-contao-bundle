@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
    var lastScrollTop = 0;
    document.querySelector('body').classList.add('scroll-up')
+   document.querySelector('body').style.setProperty('--scrolled-pixels', 0)
+   document.querySelector('body').style.setProperty('--scrolled-percent', 0)
 
    window.addEventListener("scroll", function(){ 
       add_body_class_if_scrolled()
