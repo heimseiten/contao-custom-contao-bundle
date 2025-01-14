@@ -1,0 +1,53 @@
+<script>
+   document.addEventListener("DOMContentLoaded", function() {
+
+      clone_pictures()
+      
+      const resizeObserver = new ResizeObserver(entries => {
+         add_viewport_and_document_dimensions()
+         add_top_of_elements()
+         add_width_and_height_to_every_image()
+      })
+      resizeObserver.observe(document.body)
+      window.dispatchEvent(new Event('resize'))
+
+      function clone_pictures() {
+         var elements = document.querySelectorAll('.Scrollanimation img')
+         elements.forEach(function(element){
+            var clone = element.cloneNode(true)
+            clone.classList.add('clone')
+            element.parentNode.appendChild(clone)
+         })
+      }
+
+      function add_width_and_height_to_every_image() {
+         var figures = document.querySelectorAll('.Scrollanimation figure')
+         figures.forEach(function(figure){
+            if ( figure.querySelector('img:not(.clone)') ) {
+               figure.style.setProperty('--h', figure.querySelector('img:not(.clone)').height )
+               figure.style.setProperty('--w', figure.querySelector('img:not(.clone)').width )
+            }
+         })
+      }
+
+      function add_top_of_elements() {
+         var elements = document.querySelectorAll('.Scrollanimation')
+         elements.forEach(function(element){ 
+            var top_of_element = element.getBoundingClientRect().top + window.scrollY
+            element.querySelector('figure').style.setProperty('--top', top_of_element.toFixed(0))
+            if (top_of_element < window.screen.availHeight) {
+               element.classList.add('elementInTopViewPort')
+            } else {
+               element.classList.remove('elementInTopViewPort')
+            }
+         })
+      }
+
+      function add_viewport_and_document_dimensions() {
+         document.querySelector('body').style.setProperty('--vh', window.screen.availHeight)
+         document.querySelector('body').style.setProperty('--vw', window.screen.availWidth)
+         document.querySelector('body').style.setProperty('--dh', document.documentElement.scrollHeight)
+      }
+
+   })
+</script>
