@@ -2,21 +2,21 @@
     document.addEventListener("DOMContentLoaded", function() {
 
         const resizeObserver = new ResizeObserver(entries => { 
-            setHeaderHeightAsCssVariable() 
             setHeaderTopHeightAsCssVariable() 
+            setHeaderHeightAsCssVariable() 
         })
         resizeObserver.observe(document.body)
         window.dispatchEvent(new Event('resize'))
-        
-        function setHeaderHeightAsCssVariable() {
-            if ( document.querySelector('#header') ) {
-                document.querySelector('body').style.setProperty('--header_height' , document.querySelector('#header').offsetHeight)
-            }
-        }
-        
+                
         function setHeaderTopHeightAsCssVariable() {
             if ( document.querySelector('#header_top') ) {
                 document.querySelector('body').style.setProperty('--header_top_height' , document.querySelector('#header_top').offsetHeight)
+            }
+        }
+
+        function setHeaderHeightAsCssVariable() {
+            if ( document.querySelector('#header') ) {
+                document.querySelector('body').style.setProperty('--header_height' , document.querySelector('#header').offsetHeight)
             }
         }
         
