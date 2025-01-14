@@ -7,16 +7,16 @@
         })
         resizeObserver.observe(document.body)
         window.dispatchEvent(new Event('resize'))
-                
+        
         function setHeaderTopHeightAsCssVariable() {
             if ( document.querySelector('#header_top') ) {
-                document.querySelector('body').style.setProperty('--header_top_height' , document.querySelector('#header_top').offsetHeight)
+                document.querySelector('body').style.setProperty('--header_top_height' , document.querySelector('#header_top').getBoundingClientRect().height.toFixed(3))
             }
         }
 
         function setHeaderHeightAsCssVariable() {
             if ( document.querySelector('#header') ) {
-                document.querySelector('body').style.setProperty('--header_height' , document.querySelector('#header').offsetHeight)
+                document.querySelector('body').style.setProperty('--header_height' , document.querySelector('#header').getBoundingClientRect().height.toFixed(3))
             }
         }
         
