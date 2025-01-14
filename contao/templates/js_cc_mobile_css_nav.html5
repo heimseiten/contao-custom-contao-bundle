@@ -1,0 +1,46 @@
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) { 
+        
+        if (document.getElementById("modalNavigationContentWrapper")) {
+
+            document.getElementById("modalNavigationCheckbox").addEventListener("change", function() {
+                toggleMobileNavigationBodyClass()
+            })
+
+            // if checkbox is focused, then pressing enter key will toggle the checkbox
+            document.addEventListener("keydown", function(event) {
+                if (event.keyCode === 13 && document.activeElement === document.getElementById("modalNavigationCheckbox")) {
+                    document.getElementById("modalNavigationCheckbox").checked = !document.getElementById("modalNavigationCheckbox").checked
+                    toggleMobileNavigationBodyClass()
+                }
+            })
+
+            // if esc key is pressed, uncheck the checkbox
+            document.addEventListener("keydown", function(event) {
+                if (event.keyCode === 27) {
+                    document.getElementById("modalNavigationCheckbox").checked = false
+                    toggleMobileNavigationBodyClass()
+                }
+            })
+
+            // if the user clicks outside the modal navigation, then close the modal navigation
+            document.addEventListener("click", function(event) {
+                if (event.target.closest("#modalNavigationContent")) {
+                    document.getElementById("modalNavigationCheckbox").checked = false
+                    toggleMobileNavigationBodyClass()
+                }
+            })
+
+        }    
+        
+        // function to set the body class to modal-navigation-open or remove it
+        function toggleMobileNavigationBodyClass() {
+            if (document.getElementById("modalNavigationCheckbox").checked) {
+                document.body.classList.add("modal-navigation-open")
+            } else {
+                document.body.classList.remove("modal-navigation-open")
+            }
+        }
+
+    })    
+</script>
