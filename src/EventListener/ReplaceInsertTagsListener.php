@@ -14,7 +14,7 @@ class ReplaceInsertTagsListener
         $iconPath = 'assets/fontawesome/svgs/';
         $customIconPath = 'files/layout/icons/fontawesome/svgs/';
 
-        [$name, $param, $cssClass] = explode('::', $tag) + [null, null];
+        [$name, $param, $cssClass] = explode('::', $tag) + [null, null, null];
 
         switch ($name) {    
             case 'fab':
