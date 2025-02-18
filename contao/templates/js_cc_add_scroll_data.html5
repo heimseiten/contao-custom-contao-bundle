@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
    function add_body_style_with_variable_of_scrolled_pixels() {
       const resizeObserver = new ResizeObserver(entries => {
-         document.querySelector('body').style.setProperty('--scrolled-pixels', window.scrollY)
+         document.querySelector('body').style.setProperty('--scrolled-pixels', window.scrollY.toFixed(3))
       })
       resizeObserver.observe(document.body)
    }
