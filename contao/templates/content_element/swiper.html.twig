@@ -1,12 +1,43 @@
 {% extends "@Contao/content_element/swiper.html.twig" %}
 
-
 {% block content %}
   {% set slider_attributes = attrs()
     .addClass("id_#{data.id}")
     .mergeWith(slider_attributes|default)
   %}
-  {{ parent() }}
+
+  <div class="content-slider" id="content-slider-{{data.id}}">
+    {{ parent() }}
+    
+    {% if data.sliderButtons %}
+      {% set button_prev_attributes = attrs()
+        .set('type', 'button')
+        .addClass('swiper-button-prev')
+        .mergeWith(button_prev_attributes|default)
+      %}
+      <button{{ button_prev_attributes }}></button>
+      {% set button_next_attributes = attrs()
+        .set('type', 'button')
+        .addClass('swiper-button-next')
+        .mergeWith(button_next_attributes|default)
+      %}
+      <button{{ button_next_attributes }}></button>
+    {% endif %}
+
+    {% if data.sliderPagination %}
+      {% set pagination_attributes = attrs()
+        .addClass('swiper-pagination')
+        .mergeWith(pagination_attributes|default)
+      %}  
+      <div{{ pagination_attributes }}></div>
+    {% endif %}
+
+    {% if data.sliderScrollbar %}
+      <div class="swiper-scrollbar"></div>
+    {% endif %}
+
+    <div class="swiper-progress"></div>
+  </div>
 
   {% if data.sliderThumbs %}
     <div class="swiper_thumbs id_{{data.id}}">
@@ -36,34 +67,6 @@
 
 
 {% block controls %}
-  {% if data.sliderButtons %}
-    {% set button_prev_attributes = attrs()
-      .set('type', 'button')
-      .addClass('swiper-button-prev')
-      .mergeWith(button_prev_attributes|default)
-    %}
-    <button{{ button_prev_attributes }}></button>
-    {% set button_next_attributes = attrs()
-      .set('type', 'button')
-      .addClass('swiper-button-next')
-      .mergeWith(button_next_attributes|default)
-    %}
-    <button{{ button_next_attributes }}></button>
-  {% endif %}
-
-  {% if data.sliderPagination %}
-    {% set pagination_attributes = attrs()
-      .addClass('swiper-pagination')
-      .mergeWith(pagination_attributes|default)
-    %}  
-    <div{{ pagination_attributes }}></div>
-  {% endif %}
-
-  {% if data.sliderScrollbar %}
-    <div class="swiper-scrollbar"></div>
-  {% endif %}
-
-    <div class="swiper-progress"></div>
 {% endblock %}
 
 
@@ -168,7 +171,7 @@
 
           on: {
             autoplayTimeLeft(s, time, progress) {
-              document.querySelector('.swiper.id_{{data.id}}').style.setProperty("--swiper_progress", 1 - progress);
+              document.getElementById('content-slider-{{data.id}}').style.setProperty("--swiper_progress", 1 - progress.toFixed(4));
             }
           },
           
