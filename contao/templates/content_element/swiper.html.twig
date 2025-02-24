@@ -8,21 +8,23 @@
 
   <div class="content-slider" id="content-slider-{{data.id}}">
     {{ parent() }}
-    
-    {% if data.sliderButtons %}
-      {% set button_prev_attributes = attrs()
-        .set('type', 'button')
-        .addClass('swiper-button-prev')
-        .mergeWith(button_prev_attributes|default)
-      %}
-      <button{{ button_prev_attributes }}></button>
-      {% set button_next_attributes = attrs()
-        .set('type', 'button')
-        .addClass('swiper-button-next')
-        .mergeWith(button_next_attributes|default)
-      %}
-      <button{{ button_next_attributes }}></button>
-    {% endif %}
+
+    <div class="button_wrapper">
+        {% if data.sliderButtons %}
+          {% set button_prev_attributes = attrs()
+            .set('type', 'button')
+            .addClass('swiper-button-prev')
+            .mergeWith(button_prev_attributes|default)
+          %}
+          <button{{ button_prev_attributes }}></button>
+          {% set button_next_attributes = attrs()
+            .set('type', 'button')
+            .addClass('swiper-button-next')
+            .mergeWith(button_next_attributes|default)
+          %}
+          <button{{ button_next_attributes }}></button>
+        {% endif %}
+    </div>
 
     {% if data.sliderPagination %}
       {% set pagination_attributes = attrs()
