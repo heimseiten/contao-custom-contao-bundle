@@ -38,6 +38,11 @@
                 })
             })
 
+            // add class .avtive on every li which has the class .trail
+            document.querySelectorAll("#modalNavigationContentWrapper li.trail").forEach(function(li) {
+                li.classList.add("active")
+            })
+
         }    
         
         // function to set the body class to modal-navigation-open or remove it
