@@ -23,11 +23,22 @@
                 }
             })
 
-         // if the user clicks on a <strong> inside the modal navigation, then close the modal navigation
+            // if the user clicks on a <strong> inside the modal navigation, then close the modal navigation
             document.getElementById("modalNavigationContentWrapper").addEventListener("click", function(event) {
                 if (event.target.tagName === "STRONG") {
                     document.getElementById("modalNavigationCheckbox").checked = false
                     toggleMobileNavigationBodyClass()
+                }
+            })
+
+            // add class .avtive on every li element the user clicks on, and remove it from the rest
+            document.getElementById("modalNavigationContentWrapper").addEventListener("click", function(event) {
+                if (event.target.tagName === "LI") {
+                    var liElements = document.querySelectorAll("#modalNavigationContentWrapper li")
+                    for (var i = 0; i < liElements.length; i++) {
+                        liElements[i].classList.remove("active")
+                    }
+                    event.target.classList.add("active")
                 }
             })
 
