@@ -31,15 +31,11 @@
                 }
             })
 
-            // add class .avtive on every li element the user clicks on, and remove it from the rest
-            document.getElementById("modalNavigationContentWrapper").addEventListener("click", function(event) {
-                if (event.target.tagName === "LI") {
-                    var liElements = document.querySelectorAll("#modalNavigationContentWrapper li")
-                    for (var i = 0; i < liElements.length; i++) {
-                        liElements[i].classList.remove("active")
-                    }
-                    event.target.classList.add("active")
-                }
+            // add class .avtive on every li element the user clicks on, and remove it when the user clicks again
+            document.querySelectorAll("#modalNavigationContentWrapper li").forEach(function(li) {
+                li.addEventListener("click", function() {
+                    li.classList.toggle("active")
+                })
             })
 
         }    
