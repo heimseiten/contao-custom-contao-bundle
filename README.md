@@ -13,5 +13,6 @@ Features
 - js_cc_scroll_to_error.html5
 
 Functions previously included in this extension are now in their own extensions:
+
 https://github.com/heimseiten/contao-custom-swiper-bundle
 https://github.com/heimseiten/contao-icon-insert-tags-bundle
