@@ -1,6 +1,6 @@
 # CustomContao
 
-Nothing is switched on by default. Contains many small features and helpers:
+Contains many small features and helpers:
 
 Templates
 - player.html.twig to display thumbnails on iPhone
