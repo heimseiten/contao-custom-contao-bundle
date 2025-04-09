@@ -1,21 +1,18 @@
 {
     "name": "heimseiten/contao-custom-contao-bundle",
-    "description": "Fügt dem Contao Content-Slider viele Einstellungen hinzu und vieles weitere mehr. Bspw.: Font Awesome Insert Tags, horizontale slide Animation für die Galerie, scroll to error, body class with scroll direction, ...",
+    "description": "horizontale slide Animation für die Galerie, scroll to error, body class with scroll direction, ...",
     "keywords": [
         "horizontaleSlideAnimation",
         "gallery",
         "galerie",
         "marquee",
-        "content slider",
-        "content fader",
         "fade",
         "fader",
         "scroll to error",
         "variable with header height",
         "body class with scroll direction",
         "keyboard control",
-        "tastatur steuerung",
-        "Font Awesome Insert Tags"
+        "tastatur steuerung"
     ],
     "type": "contao-bundle",
     "license": "GPL-3.0-or-later",
@@ -33,8 +30,7 @@
     },
     "require": {
         "php": "^8.1",
-        "contao/core-bundle": "^4.13 || ^5.0",
-        "fortawesome/font-awesome": "^6.5"
+        "contao/core-bundle": "^4.13 || ^5.0"
     },
     "require-dev": {
         "contao/manager-plugin": "^2.12"
