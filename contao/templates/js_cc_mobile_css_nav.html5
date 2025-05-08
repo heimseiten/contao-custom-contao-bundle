@@ -25,7 +25,7 @@
 
             // if the user clicks on a <strong> inside the modal navigation, then close the modal navigation
             document.getElementById("modalNavigationContentWrapper").addEventListener("click", function(event) {
-                if (event.target.tagName === "STRONG") {
+                if (event.target.tagName === "STRONG" || event.target.tagName === "A") {
                     document.getElementById("modalNavigationCheckbox").checked = false
                     toggleMobileNavigationBodyClass()
                 }
