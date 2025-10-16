@@ -11,8 +11,8 @@
       window.dispatchEvent(new Event('resize'))
 
       function clone_pictures() {
-         if (document.querySelector('.Scrollanimation img, .Scrollanimation video')) {
-            var elements = document.querySelectorAll('.Scrollanimation img, .Scrollanimation video')
+         if (document.querySelector('.Scrollanimation figure img, .Scrollanimation video')) {
+            var elements = document.querySelectorAll('.Scrollanimation figure img, .Scrollanimation video')
             elements.forEach(function(element){
                var clone = element.cloneNode(true)
                clone.classList.add('clone')
