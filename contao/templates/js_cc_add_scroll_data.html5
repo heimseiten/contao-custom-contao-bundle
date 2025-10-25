@@ -15,7 +15,13 @@ document.addEventListener("DOMContentLoaded", function() {
    }, false)
 
    function add_body_class_if_scrolled() {
-      if (window.scrollY >= 50) {
+      var scrolled_after = getComputedStyle(document.documentElement).getPropertyValue('--set_body_class_scrolled_after').trim()
+      if (scrolled_after) {
+         scrolled_after = parseInt(scrolled_after)
+      } else {
+         scrolled_after = 50
+      }
+      if (window.scrollY >= scrolled_after) {
          document.querySelector('body').classList.add('scrolled')
       } else {
          document.querySelector('body').classList.remove('scrolled')
