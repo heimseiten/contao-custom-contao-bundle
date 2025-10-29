@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
    window.addEventListener("scroll", function(){ 
       add_body_class_if_scrolled()
+      add_body_class_if_scrolled_2()
       add_body_class_with_scroll_direction()
       add_body_class_when_the_height_of_the_viewport_is_scrolled()
       add_body_style_with_variable_of_scrolled_pixels()
@@ -25,6 +26,20 @@ document.addEventListener("DOMContentLoaded", function() {
          document.querySelector('body').classList.add('scrolled')
       } else {
          document.querySelector('body').classList.remove('scrolled')
+      }  
+   }
+
+   function add_body_class_if_scrolled_2() {
+      var scrolled_2_after = getComputedStyle(document.documentElement).getPropertyValue('--set_body_class_scrolled_2_after').trim()
+      if (scrolled_2_after) {
+         scrolled_2_after = parseInt(scrolled_2_after)
+      } else {
+         scrolled_2_after = 50
+      }
+      if (window.scrollY >= scrolled_2_after) {
+         document.querySelector('body').classList.add('scrolled_2')
+      } else {
+         document.querySelector('body').classList.remove('scrolled_2')
       }  
    }
 
