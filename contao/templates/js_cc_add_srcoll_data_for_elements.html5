@@ -24,8 +24,8 @@
       function add_dimensions_of_elements() {
          if (document.querySelector('.Scrollanimation')) {
             document.querySelectorAll('.Scrollanimation').forEach(function(element){
-               if (element.querySelector('figure')) {
-                  element = element.querySelector('figure')
+               if (element.querySelector('figure img.clone')) {
+                  element = element.querySelector('figure img.clone')
                }
                if ( element.querySelector('img:not(.clone)') ) {
                   element.style.setProperty('--h', element.querySelector('img:not(.clone)').height )
@@ -41,8 +41,8 @@
       function add_top_of_elements() {
          if (document.querySelector('.Scrollanimation')) {
             document.querySelectorAll('.Scrollanimation').forEach(function(element){ 
-               if (element.querySelector('figure')) {
-                  element = element.querySelector('figure')
+               if (element.querySelector('figure img.clone')) {
+                  element = element.querySelector('figure img.clone')
                }
                var top_of_element = element.getBoundingClientRect().top + window.scrollY
                element.style.setProperty('--top', top_of_element.toFixed(0))
