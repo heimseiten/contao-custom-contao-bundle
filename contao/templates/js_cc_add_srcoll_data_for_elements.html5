@@ -1,8 +1,12 @@
 <script>
    document.addEventListener("DOMContentLoaded", function() {
 
+      const scrollAnimations = document.querySelectorAll('.Scrollanimation')
+      if (!scrollAnimations.length) return
+
       clone_pictures()
-      const resizeObserver = new ResizeObserver(entries => {
+
+      const resizeObserver = new ResizeObserver(() => {
          add_viewport_and_document_dimensions()
          add_top_of_elements()
          add_dimensions_of_elements()
@@ -11,54 +15,43 @@
       window.dispatchEvent(new Event('resize'))
 
       function clone_pictures() {
-         if (document.querySelector('.Scrollanimation figure img, .Scrollanimation video')) {
-            var elements = document.querySelectorAll('.Scrollanimation figure img, .Scrollanimation video')
-            elements.forEach(function(element){
-               var clone = element.cloneNode(true)
-               clone.classList.add('clone')
-               element.parentNode.appendChild(clone)
-            })
-         }
+         document.querySelectorAll('.Scrollanimation figure img, .Scrollanimation video').forEach(element => {
+            const clone = element.cloneNode(true)
+            clone.classList.add('clone')
+            element.parentNode.appendChild(clone)
+         })
       }
 
       function add_dimensions_of_elements() {
-         if (document.querySelector('.Scrollanimation')) {
-            document.querySelectorAll('.Scrollanimation').forEach(function(element){
-               if (element.querySelector('figure img.clone')) {
-                  element = element.querySelector('figure img.clone')
-               }
-               if ( element.querySelector('img:not(.clone)') ) {
-                  element.style.setProperty('--h', element.querySelector('img:not(.clone)').height )
-                  element.style.setProperty('--w', element.querySelector('img:not(.clone)').width )
-               } else {
-                  element.style.setProperty('--h', element.offsetHeight )
-                  element.style.setProperty('--w', element.offsetWidth )
-               }
-            })
-         }
+         scrollAnimations.forEach(element => {
+            const targetElement = element.querySelector('figure img.clone') || element
+            const sourceImg = element.querySelector('img:not(.clone)')
+
+            if (sourceImg) {
+               targetElement.style.setProperty('--h', sourceImg.height)
+               targetElement.style.setProperty('--w', sourceImg.width)
+            } else {
+               targetElement.style.setProperty('--h', targetElement.offsetHeight)
+               targetElement.style.setProperty('--w', targetElement.offsetWidth)
+            }
+         })
       }
 
       function add_top_of_elements() {
-         if (document.querySelector('.Scrollanimation')) {
-            document.querySelectorAll('.Scrollanimation').forEach(function(element){ 
-               if (element.querySelector('figure img.clone')) {
-                  element = element.querySelector('figure img.clone')
-               }
-               var top_of_element = element.getBoundingClientRect().top + window.scrollY
-               element.style.setProperty('--top', top_of_element.toFixed(0))
-               if (top_of_element < window.screen.availHeight) {
-                  element.classList.add('elementInTopViewPort')
-               } else {
-                  element.classList.remove('elementInTopViewPort')
-               }
-            })
-         }
+         scrollAnimations.forEach(element => {
+            const targetElement = element.querySelector('figure img.clone') || element
+            const top_of_element = targetElement.getBoundingClientRect().top + window.scrollY
+
+            targetElement.style.setProperty('--top', top_of_element.toFixed(0))
+            targetElement.classList.toggle('elementInTopViewPort', top_of_element < window.screen.availHeight)
+         })
       }
 
       function add_viewport_and_document_dimensions() {
-         document.querySelector('body').style.setProperty('--vh', window.screen.availHeight)
-         document.querySelector('body').style.setProperty('--vw', window.screen.availWidth)
-         document.querySelector('body').style.setProperty('--dh', document.documentElement.scrollHeight)
+         const body = document.body
+         body.style.setProperty('--vh', window.screen.availHeight)
+         body.style.setProperty('--vw', window.screen.availWidth)
+         body.style.setProperty('--dh', document.documentElement.scrollHeight)
       }
 
    })
