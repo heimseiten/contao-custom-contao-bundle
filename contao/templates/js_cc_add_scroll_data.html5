@@ -1,82 +1,48 @@
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+   const body = document.body;
+   const root = document.documentElement;
+   let lastScrollTop = 0;
 
-   var lastScrollTop = 0;
-   add_body_class_with_scroll_direction()
-   add_body_style_with_variable_of_scrolled_pixels()
-   add_body_style_with_variable_of_scrolled_percent()
+   // CSS-Variable einmalig auslesen (Performance)
+   const getThreshold = (varName, fallback) => {
+      const value = getComputedStyle(root).getPropertyValue(varName).trim();
+      return value ? parseInt(value, 10) : fallback;
+   };
 
-   window.addEventListener("scroll", function(){ 
-      add_body_class_if_scrolled()
-      add_body_class_if_scrolled_2()
-      add_body_class_with_scroll_direction()
-      add_body_class_when_the_height_of_the_viewport_is_scrolled()
-      add_body_style_with_variable_of_scrolled_pixels()
-      add_body_style_with_variable_of_scrolled_percent()
-   }, false)
+   const scrolledAfter = getThreshold('--set_body_class_scrolled_after', 50);
+   const scrolledAfter2 = getThreshold('--set_body_class_scrolled_2_after', 200);
 
-   function add_body_class_if_scrolled() {
-      var scrolled_after = getComputedStyle(document.documentElement).getPropertyValue('--set_body_class_scrolled_after').trim()
-      if (scrolled_after) {
-         scrolled_after = parseInt(scrolled_after)
-      } else {
-         scrolled_after = 50
-      }
-      if (window.scrollY >= scrolled_after) {
-         document.querySelector('body').classList.add('scrolled')
-      } else {
-         document.querySelector('body').classList.remove('scrolled')
-      }  
+   function updateScrollClasses() {
+      const scrollY = window.scrollY;
+      const viewportHeight = window.innerHeight;
+
+      // Scrolled-Klassen
+      body.classList.toggle('scrolled', scrollY >= scrolledAfter);
+      body.classList.toggle('scrolled_2', scrollY >= scrolledAfter2);
+      body.classList.toggle('scrolled100vh', scrollY >= viewportHeight);
+
+      // Scroll-Richtung
+      const isScrollingDown = scrollY > lastScrollTop;
+      body.classList.toggle('scroll-down', isScrollingDown);
+      body.classList.toggle('scroll-up', !isScrollingDown);
+      lastScrollTop = Math.max(0, scrollY);
+
+      // CSS-Variablen setzen
+      const maxScroll = root.scrollHeight - viewportHeight;
+      const scrollPercent = maxScroll > 0 ? (scrollY / maxScroll * 100).toFixed(3) : 0;
+
+      body.style.setProperty('--scrolled-pixels', scrollY.toFixed(0));
+      body.style.setProperty('--scrolled-percent', scrollPercent);
    }
 
-   function add_body_class_if_scrolled_2() {
-      var scrolled_2_after = getComputedStyle(document.documentElement).getPropertyValue('--set_body_class_scrolled_2_after').trim()
-      if (scrolled_2_after) {
-         scrolled_2_after = parseInt(scrolled_2_after)
-      } else {
-         scrolled_2_after = 50
-      }
-      if (window.scrollY >= scrolled_2_after) {
-         document.querySelector('body').classList.add('scrolled_2')
-      } else {
-         document.querySelector('body').classList.remove('scrolled_2')
-      }  
-   }
+   // Initial ausführen
+   updateScrollClasses();
 
-   function add_body_class_with_scroll_direction() {
-      var st = window.pageYOffset || document.documentElement.scrollTop
-      if (st > lastScrollTop){
-      document.querySelector('body').classList.add('scroll-down')
-      document.querySelector('body').classList.remove('scroll-up')
-      } else {
-      document.querySelector('body').classList.remove('scroll-down')
-      document.querySelector('body').classList.add('scroll-up')
-      }
-      lastScrollTop = st <= 0 ? 0 : st
-   }
+   // Scroll-Event mit passive für bessere Performance
+   window.addEventListener("scroll", updateScrollClasses, { passive: true });
 
-   function add_body_class_when_the_height_of_the_viewport_is_scrolled() {
-      if (window.scrollY >= window.screen.availHeight) {
-         document.querySelector('body').classList.add('scrolled100vh')
-      } else {
-         document.querySelector('body').classList.remove('scrolled100vh')
-      }  
-   }
-
-   function add_body_style_with_variable_of_scrolled_pixels() {
-      const resizeObserver = new ResizeObserver(entries => {
-         document.querySelector('body').style.setProperty('--scrolled-pixels', window.scrollY.toFixed(3))
-      })
-      resizeObserver.observe(document.body)
-   }
-   
-   function add_body_style_with_variable_of_scrolled_percent() {
-      const resizeObserver = new ResizeObserver(entries => {
-         var scrolled_percent = (window.scrollY / (document.documentElement.scrollHeight - window.screen.availHeight) * 100).toFixed(3)
-         document.querySelector('body').style.setProperty('--scrolled-percent', scrolled_percent)
-      })
-      resizeObserver.observe(document.body)
-   }
-
-})
+   // Bei Resize CSS-Variablen aktualisieren
+   window.addEventListener("resize", updateScrollClasses, { passive: true });
+});
 </script>
