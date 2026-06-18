@@ -1,19 +1,25 @@
 # CustomContao
 
-Contains many small features and helpers:
+Mehrere kleine Frontend-Helfer für Contao. Welche geladen werden, wird **pro Seitenlayout** in der Legende **„Custom Contao"** per Checkbox eingestellt — funktioniert im klassischen `fe_page`- wie im modernen Twig-Layout.
 
-Templates
-- player.html.twig to display thumbnails on iPhone
+## Features (im Seitenlayout aktivierbar)
 
-Features
-- js_cc_add_body_class_with_scroll_direction.html5
-- js_cc_add_body_css_variable_with_header_height.html5
-- js_cc_content_gallery_with_class_horizontaleSlideAnimation.html5
-- js_cc_remove_body_class_preload.html5 (for body.preload * { transition: none; } )
-- js_cc_scroll_to_error.html5
+- **Scroll-Richtung** – setzt am `<body>` die Klasse `scroll-down` bzw. `scroll-up`.
+- **Header-Höhe als CSS-Variable** – setzt `--header_height` und `--header_top_height` am `<body>` (z. B. für Sticky-Layouts).
+- **Zu Formularfehlern scrollen** – scrollt nach dem Absenden automatisch zum ersten Fehler.
+- **„preload"-Klasse entfernen** – entfernt `body.preload`, sobald die Seite geladen ist (z. B. für `body.preload * { transition: none; }`).
+- **Galerie: horizontale Slide-Animation** – lädt JS + CSS für die horizontale Slide-Animation der Galerie.
 
-Functions previously included in this extension are now in their own extensions:
+## Templates
 
-https://github.com/heimseiten/contao-custom-swiper-bundle
+- `content_element/player/with_iphone_thumnail.html.twig` – Thumbnail auf dem iPhone anzeigen
+- `content_element/accordion/…` – Akkordeon-Varianten
 
-https://github.com/heimseiten/contao-icon-insert-tags-bundle
+## Migration von < 7.0
+
+Bis v6 wurden die Skripte über *Seitenlayout → JavaScript → JavaScript-Templates* (`js_cc_*`) eingebunden — das wird vom modernen Twig-Layout nicht mehr verarbeitet. Ab **7.0** stattdessen die Häkchen in der Legende **„Custom Contao"** setzen; die alten `js_cc_*`-Einträge können aus den JavaScript-Templates des Layouts entfernt werden. Das Element `js_cc_add_srcoll_data_for_elements` (alte Klon-Parallax) entfällt ersatzlos.
+
+Funktionen, die früher hier enthalten waren, liegen inzwischen in eigenen Erweiterungen:
+
+- https://github.com/heimseiten/contao-custom-swiper-bundle
+- https://github.com/heimseiten/contao-icon-insert-tags-bundle

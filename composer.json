@@ -1,6 +1,6 @@
 {
     "name": "heimseiten/contao-custom-contao-bundle",
-    "description": "horizontale slide Animation für die Galerie, scroll to error, body class with scroll direction, ...",
+    "description": "Mehrere Frontend-Helfer (Scroll-Richtung als Body-Klasse, Header-Höhe als CSS-Variable, zu Formularfehlern scrollen, preload-Klasse entfernen, horizontale Slide-Animation der Galerie), pro Seitenlayout per Checkbox aktivierbar.",
     "keywords": [
         "horizontaleSlideAnimation",
         "gallery",

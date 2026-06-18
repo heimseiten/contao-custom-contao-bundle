@@ -19,3 +19,10 @@ services:
             - '@contao.framework'
         tags:
             - { name: contao.hook, hook: parseTemplate }
+
+    # generatePage (klassisch) wird per #[AsHook] autokonfiguriert; das LayoutEvent
+    # (modern) hier als String-Tag, damit Contao\CoreBundle\Event\LayoutEvent auf
+    # Contao 4.13 nicht aufgelöst werden muss.
+    Heimseiten\ContaoCustomContaoBundle\EventListener\AddLayoutAssetsListener:
+        tags:
+            - { name: kernel.event_listener, event: 'Contao\CoreBundle\Event\LayoutEvent', method: onLayout }

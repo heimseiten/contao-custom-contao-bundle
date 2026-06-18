@@ -1,7 +1,0 @@
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        if (document.querySelector('body').classList.contains('preload')) {
-            document.querySelector('body').classList.remove('preload')
-        }
-    })
-</script>
