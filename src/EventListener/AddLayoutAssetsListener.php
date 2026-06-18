@@ -22,7 +22,9 @@ use Symfony\Component\Asset\Packages;
 /**
  * Bindet die im Seitenlayout (Legende „Custom Contao") aktivierten Dateien
  * automatisch ein – klassisch (fe_page) wie modern (Twig-Layout). Pro Datei eine
- * Checkbox; nur Aktiviertes wird geladen.
+ * Checkbox; nur Aktiviertes wird geladen. Zusätzlich wird bei aktivierter
+ * „preload"-Option diese Klasse serverseitig an den <body> gehängt (und per JS
+ * nach dem Laden wieder entfernt).
  *
  * generatePage feuert nur klassisch, LayoutEvent nur modern – daher beide.
  */
@@ -38,6 +40,7 @@ class AddLayoutAssetsListener
     public function onGeneratePage(PageModel $page, LayoutModel $layout): void
     {
         $this->addAssets($layout);
+        $this->adjustBodyClass($layout, $page);
     }
 
     /**
@@ -51,8 +54,16 @@ class AddLayoutAssetsListener
     {
         $layout = method_exists($event, 'getLayout') ? $event->getLayout() : null;
 
-        if ($layout instanceof LayoutModel) {
-            $this->addAssets($layout);
+        if (!$layout instanceof LayoutModel) {
+            return;
+        }
+
+        $this->addAssets($layout);
+
+        $page = method_exists($event, 'getPage') ? $event->getPage() : null;
+
+        if ($page instanceof PageModel) {
+            $this->adjustBodyClass($layout, $page);
         }
     }
 
@@ -78,6 +89,27 @@ class AddLayoutAssetsListener
             $dir = 'js_cc_content_gallery_with_class_horizontaleSlideAnimation/';
             $GLOBALS['TL_BODY']['cc_horizontale_slide_animation'] = $this->scriptTag($dir.'script.js');
             $GLOBALS['TL_CSS']['cc_horizontale_slide_animation'] = self::BASE.$dir.'style.css|static';
+        }
+    }
+
+    /**
+     * Hängt bei aktivierter Option die Klasse „preload" an die Page-cssClass.
+     * Beide Layouts schreiben diese an den <body>: klassisch baut PageRegular
+     * die Body-Klasse nach dem generatePage-Hook aus cssClass; modern rendert den
+     * Body „deferred" und hängt „contao.page.cssClass" an. Das mitgelieferte
+     * remove_body_class_preload.js entfernt die Klasse nach dem Laden wieder.
+     */
+    private function adjustBodyClass(LayoutModel $layout, PageModel $page): void
+    {
+        if (!$layout->cc_remove_body_class_preload) {
+            return;
+        }
+
+        $classes = preg_split('/\s+/', (string) $page->cssClass, -1, PREG_SPLIT_NO_EMPTY) ?: [];
+
+        if (!in_array('preload', $classes, true)) {
+            $classes[] = 'preload';
+            $page->cssClass = implode(' ', $classes);
         }
     }
 
